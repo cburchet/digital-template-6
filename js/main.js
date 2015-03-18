@@ -27,6 +27,7 @@ window.onload = function() {
     var map;
     var backgroundLayer;
     var blockedLayer;
+    var obstacleLayer;
     
     var level = 1;
     
@@ -44,6 +45,11 @@ window.onload = function() {
         
         backgroundLayer = map.createLayer('BackgroundLayer');
         backgroundLayer.resizeWorld();
+        
+        obstacleLayer = map.createLayer('ObstacleLayer');
+        
+        map.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
+        obstacleLayer.resizeWorld();
         
         player = game.add.sprite(100, game.world.height - 150, 'dude');
 	 
