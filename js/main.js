@@ -29,7 +29,7 @@ window.onload = function() {
     {
         game.physics.startSystem(Phaser.Physics.ARCADE);
         
-        map = game.add.tilemap('level1');
+        map = game.add.tilemap('world');
         map.addTilesetImage('tiles', 'gameTiles');
         
         blockedLayer = map.createLayer('BlockLayer');
