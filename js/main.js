@@ -76,7 +76,7 @@ window.onload = function() {
     {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
-    	game.physics.arcade.collide(player, obstacleLayer);
+    	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
     	
 	if (cursors.left.isDown)
 	{
@@ -90,7 +90,15 @@ window.onload = function() {
      	
     	if (cursors.up.isDown && player.body.onFloor())
     	{
-    		player.body.velocity.y = -200;
+    		player.body.velocity.y = -250;
     	}
+    }
+    
+    function gameover()
+    { 
+	player.body.velocity.x = 0;
+	player.animations.stop();
+	player.frame = 4;
+	var gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
     }
 };
