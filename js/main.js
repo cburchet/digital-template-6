@@ -68,6 +68,8 @@ window.onload = function() {
     function update() 
     {
     	game.physics.arcade.collide(player, blockedLayer);
+    	//add game over if collision
+    	game.physics.arcade.collide(player, obstacleLayer);
     	
 	 
     	player.body.velocity.x = 150 + level * 10;
