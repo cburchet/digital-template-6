@@ -77,7 +77,7 @@ window.onload = function() {
     	
 	if (cursors.left.isDown && player.body.velocity.x > 50)
 	{
-		player.body.velocity.x -= 10;
+	//	player.body.velocity.x -= 10;
 	}
     	player.body.velocity.x = 150 + level * 10;
      	player.animations.play('right');
