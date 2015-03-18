@@ -102,5 +102,6 @@ window.onload = function() {
 	player.animations.stop();
 	player.frame = 4;
 	var gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: 'red' });
+	gameoverText.fixedToCamera = true;
     }
 };
