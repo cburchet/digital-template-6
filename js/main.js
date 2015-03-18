@@ -59,6 +59,8 @@ window.onload = function() {
     
     function update() 
     {
+    	game.physics.arcade.collide(player, blockedLayer);
+    	
          player.body.velocity.x = 0;
 	 
     	if (cursors.left.isDown)
