@@ -50,6 +50,7 @@ window.onload = function() {
         backgroundLayer.resizeWorld();
         
         map2 = game.add.tilemap('obstacle');
+        map2.addTilesetImage('tiles', 'gameTiles');
         obstacleLayer = map2.createLayer('ObstacleLayer');
         
         map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
