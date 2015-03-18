@@ -80,8 +80,12 @@ window.onload = function() {
 	{
 		player.body.velocity.x -= 10;
 	}
-    	player.body.velocity.x = 150 + level * 10;
+	else if (player.body.velocity.x > 50 && player.body.velocity.x < 150 + level * 10 && !cursors.left.isDown)
+	{
+    		player.body.velocity.x += 10;
+	}
      	player.animations.play('right');
+     	
     	if (cursors.up.isDown && player.body.onFloor())
     	{
     		player.body.velocity.y = -200;
