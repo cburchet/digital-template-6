@@ -18,6 +18,7 @@ window.onload = function() {
     function preload() {
         // Load an image and call it 'logo'.
         game.load.tilemap('world', 'assets/world.json', null, Phaser.Tilemap.TILED_JSON);
+        game.load.tilemap('obstacle', 'assets/killer.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image( 'gameTiles', 'assets/tiles.png' );
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     }
@@ -27,6 +28,8 @@ window.onload = function() {
     var map;
     var backgroundLayer;
     var blockedLayer;
+    
+    var map2;
     var obstacleLayer;
     
     var level = 1;
@@ -46,9 +49,10 @@ window.onload = function() {
         backgroundLayer = map.createLayer('BackgroundLayer');
         backgroundLayer.resizeWorld();
         
-        obstacleLayer = map.createLayer('ObstacleLayer');
+        map2 = game.add.tilemap('obstacle');
+        obstacleLayer = map2.createLayer('ObstacleLayer');
         
-        map.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
+        map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
         obstacleLayer.resizeWorld();
         
         player = game.add.sprite(100, game.world.height - 150, 'dude');
