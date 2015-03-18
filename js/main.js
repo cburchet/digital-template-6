@@ -99,6 +99,6 @@ window.onload = function() {
 	player.body.velocity.x = 0;
 	player.animations.stop();
 	player.frame = 4;
-	var gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: '#000' });
+	var gameoverText = game.add.text(350, 300, 'Game Over', { fontSize: '128px', fill: 'red' });
     }
 };
