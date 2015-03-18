@@ -33,6 +33,7 @@ window.onload = function() {
     var obstacleLayer;
     
     var level = 1;
+    var over = false;
     
     function create() 
     {
@@ -78,17 +79,17 @@ window.onload = function() {
     	//add game over if collision
     	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
     	
-	if (cursors.left.isDown)
+	if (cursors.left.isDown && over == false)
 	{
 		player.body.velocity.x = 50 + level * 10;
 	}
-	else
+	else if (!cursors.left.isDown && over == false)
 	{
     		player.body.velocity.x = 150 + level * 10;
 	}
      	player.animations.play('right');
      	
-    	if (cursors.up.isDown && player.body.onFloor())
+    	if (cursors.up.isDown && player.body.onFloor() && over == false)
     	{
     		player.body.velocity.y = -250;
     	}
@@ -96,6 +97,7 @@ window.onload = function() {
     
     function gameover()
     { 
+    	over = true;
 	player.body.velocity.x = 0;
 	player.animations.stop();
 	player.frame = 4;
