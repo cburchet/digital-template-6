@@ -78,13 +78,13 @@ window.onload = function() {
     	//add game over if collision
     	game.physics.arcade.collide(player, obstacleLayer);
     	
-	if (cursors.left.isDown && player.body.velocity.x > 50)
+	if (cursors.left.isDown)
 	{
-		player.body.velocity.x -= 10;
+		player.body.velocity.x = 50 + level * 10;
 	}
-	else if (player.body.velocity.x > 50 && player.body.velocity.x < 150 + level * 10 && !cursors.left.isDown)
+	else
 	{
-    		player.body.velocity.x += 10;
+    		player.body.velocity.x = 150 + level * 10;
 	}
      	player.animations.play('right');
      	
