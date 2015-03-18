@@ -68,7 +68,7 @@ window.onload = function() {
      	player.animations.play('right');
     	if (cursors.up.isDown && player.body.onFloor())
     	{
-    		player.body.velocity.y = -100;
+    		player.body.velocity.y = -200;
     	}
     }
 };
