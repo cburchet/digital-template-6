@@ -23,9 +23,11 @@ window.onload = function() {
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
         game.load.image('phone', 'assets/phone.jpg');
         game.load.image('door', 'assets/castledoors.png');
+        game.load.audio('song', 'assets/crystal.ogg');
     }
     var player;
     var cursors;
+    var music;
     
     var phone;
     var phones;
@@ -78,6 +80,9 @@ window.onload = function() {
 		
 	player.animations.add('left', [0, 1, 2, 3], 10, true);
 	player.animations.add('right', [5, 6, 7, 8], 10, true);
+	
+	music = game.add.audio('song');
+	music.play('', 0, .1, true);
 	
 	//set to zero and add function for user to click
 	over = true;
