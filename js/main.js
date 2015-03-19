@@ -120,7 +120,8 @@ window.onload = function() {
     {
     	phone.destroy();
     	score++;
-    	var gameoverText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
+    	var scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
+    	scoreText.fixedToCamera = true;
     }
     
     function gameover()
