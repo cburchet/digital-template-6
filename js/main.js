@@ -126,7 +126,6 @@ window.onload = function() {
     	phone.kill();
     	score++;
     	scoreText.text = 'Score: ' + score;
-    	scoreText.fixedToCamera = true;
     }
     
     function gameover()
