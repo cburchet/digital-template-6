@@ -32,6 +32,8 @@ window.onload = function() {
     var score = 0;
     var door;
     
+    var scoreText;
+    
     var map;
     var backgroundLayer;
     var blockedLayer;
@@ -83,6 +85,9 @@ window.onload = function() {
 	createPhone();
 	
 	cursors = game.input.keyboard.createCursorKeys();
+	
+	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
+	scoreText.fixedToCamera = true;
     }
     
     function update() 
@@ -120,7 +125,7 @@ window.onload = function() {
     {
     	phone.kill();
     	score++;
-    	var scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
+    	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
     	scoreText.fixedToCamera = true;
     }
     
