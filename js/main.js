@@ -84,8 +84,7 @@ window.onload = function() {
 	player.body.velocity.x = 0;
 	player.animations.stop();
 	player.frame = 4;
-	player.body.velocity.x = 150 + level * 10;
-	
+
 	phones = game.add.group();
 	phones.enableBody = true;
 	createPhone();
