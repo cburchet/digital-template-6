@@ -118,7 +118,7 @@ window.onload = function() {
     
     function collectPhones()
     {
-    	remove(phone, true);
+    	phones.remove(phone, true);
     	score++;
     	var scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
     	scoreText.fixedToCamera = true;
