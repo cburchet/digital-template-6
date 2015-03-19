@@ -116,9 +116,9 @@ window.onload = function() {
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 500, 'phone');
     }
     
-    function collectPhones()
+    function collectPhones(phone)
     {
-    	phones.remove(phone, true);
+    	phone.kill();
     	score++;
     	var scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
     	scoreText.fixedToCamera = true;
