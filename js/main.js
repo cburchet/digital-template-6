@@ -29,6 +29,7 @@ window.onload = function() {
     
     var phone;
     var phones;
+    var score = 0;
     var door;
     
     var map;
@@ -89,7 +90,7 @@ window.onload = function() {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
     	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
-    //	game.physics.arcade.collide(player, phones, collectPhones, null, this);
+    	game.physics.arcade.collide(player, phones, collectPhones, null, this);
     	
 	if (cursors.left.isDown && over == false)
 	{
@@ -113,6 +114,13 @@ window.onload = function() {
     	phone = phones.create(game.rnd.integerInRange(600,1000), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1100,1500), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 500, 'phone');
+    }
+    
+    function collectPhones()
+    {
+    	phone.kill();
+    	score++;
+    	var gameoverText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
     }
     
     function gameover()
