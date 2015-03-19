@@ -21,9 +21,15 @@ window.onload = function() {
         game.load.tilemap('obstacle', 'assets/killer.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image( 'gameTiles', 'assets/tiles.png' );
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
+        game.load.image('phone', 'assets/phone.jpg');
+        game.load.image('door', 'assets/castledoors.png');
     }
     var player;
     var cursors;
+    
+    var phone;
+    var phones;
+    var door;
     
     var map;
     var backgroundLayer;
@@ -68,7 +74,12 @@ window.onload = function() {
 	player.animations.add('left', [0, 1, 2, 3], 10, true);
 	player.animations.add('right', [5, 6, 7, 8], 10, true);
 	
+	//set to zero and add function for user to click
 	player.body.velocity.x = 150 + level * 10;
+	
+	phones = game.add.group();
+	phones.enableBody = true;
+	createPhone();
 	
 	cursors = game.input.keyboard.createCursorKeys();
     }
@@ -78,6 +89,7 @@ window.onload = function() {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
     	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
+    //	game.physics.arcade.collide(player, phones, collectPhones, null, this);
     	
 	if (cursors.left.isDown && over == false)
 	{
@@ -93,6 +105,14 @@ window.onload = function() {
     	{
     		player.body.velocity.y = -250;
     	}
+    }
+    
+    function createPhones()
+    {
+    	phone = phones.create(game.rnd.integerInRange(100,500), game.rnd.integerInRange(600), 'phone');
+    	phone = phones.create(game.rnd.integerInRange(600,1000), game.rnd.integerInRange(600), 'phone');
+    	phone = phones.create(game.rnd.integerInRange(1100,1500), game.rnd.integerInRange(600), 'phone');
+    	phone = phones.create(game.rnd.integerInRange(1600,2000), game.rnd.integerInRange(600), 'phone');
     }
     
     function gameover()
