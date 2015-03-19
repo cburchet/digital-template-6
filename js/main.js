@@ -116,7 +116,7 @@ window.onload = function() {
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 500, 'phone');
     }
     
-    function collectPhones(phone)
+    function collectPhones(player, phone)
     {
     	phone.kill();
     	score++;
