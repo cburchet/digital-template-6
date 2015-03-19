@@ -162,7 +162,6 @@ window.onload = function() {
 	player.animations.stop();
 	player.frame = 4;
     	introText.visible = true;
-    	introText.fixedToCamera = true;
     	game.input.onDown.add(begin, this);
     }
     
