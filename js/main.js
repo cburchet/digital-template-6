@@ -110,7 +110,7 @@ window.onload = function() {
     function createPhone()
     {
     	phone = phones.create(game.rnd.integerInRange(100,500), 300, 'phone');
-    	phone = phones.create(game.rnd.integerInRange(600,1000), 300), 'phone');
+    	phone = phones.create(game.rnd.integerInRange(600,1000), 300, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1100,1500), 300, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 300, 'phone');
     }
