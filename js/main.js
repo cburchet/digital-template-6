@@ -121,7 +121,6 @@ window.onload = function() {
 	{
     		player.body.velocity.x = 150 + level * 10;
 	}
-     	player.animations.play('right');
      	
     	if (cursors.up.isDown && player.body.onFloor() && over == false)
     	{
