@@ -130,6 +130,8 @@ window.onload = function() {
     {
     	player.body.velocity.x = 150 + level * 10;
     	player.animations.play('right');
+    	introText.visible = false;
+    	over = false;
     }
     
     function createPhone()
