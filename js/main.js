@@ -90,7 +90,7 @@ window.onload = function() {
 	createPhone();
 	
 	door = game.add.sprite(game.world.width - 64, game.world.height - 128, 'door');
-	door.enableBody = true;
+	game.physics.enable(door);
 	
 	cursors = game.input.keyboard.createCursorKeys();
 	
