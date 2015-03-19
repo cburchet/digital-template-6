@@ -125,7 +125,7 @@ window.onload = function() {
     {
     	phone.kill();
     	score++;
-    	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
+    	scoreText.text = 'Score: ' + score;
     	scoreText.fixedToCamera = true;
     }
     
