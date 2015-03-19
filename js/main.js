@@ -89,6 +89,8 @@ window.onload = function() {
 	phones.enableBody = true;
 	createPhone();
 	
+	door = game.add.sprite(game.world.width - 64, game.world.height - 64, 'door');
+	
 	cursors = game.input.keyboard.createCursorKeys();
 	
 	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
@@ -98,6 +100,7 @@ window.onload = function() {
 	
 	introText = game.add.text(game.world.centerX, 400, '- click to start -', { font: "40px Arial", fill: "#ffffff", align: "center" });
 	introText.anchor.setTo(0.5, 0.5);
+	introText.fixedToCamera = true;
 	game.input.onDown.add(begin, this);
     }
     
@@ -107,7 +110,7 @@ window.onload = function() {
     	//add game over if collision
     //	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
     	game.physics.arcade.collide(player, phones, collectPhones, null, this);
-    //	game.physics.arcade.collide(player, door, nextLevel, null, this);
+    	game.physics.arcade.collide(player, door, nextLevel, null, this);
     	
 	if (cursors.left.isDown && over == false)
 	{
@@ -152,8 +155,15 @@ window.onload = function() {
     {
     	level++;
     	levelText.text = 'Level: ' + level;
-    	player.x = 32;
-    	player.y = 600;
+    	player.x = 33;
+    	player.y = game.world.height-49;
+    	over = true;
+	player.body.velocity.x = 0;
+	player.animations.stop();
+	player.frame = 4;
+    	introText.visible = true;
+    	introText.fixedToCamera = true;
+    	game.input.onDown.add(begin, this);
     }
     
     function gameover()
