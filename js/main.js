@@ -34,6 +34,7 @@ window.onload = function() {
     
     var scoreText;
     var introText;
+    var levelText;
     
     var map;
     var backgroundLayer;
