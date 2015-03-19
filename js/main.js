@@ -21,7 +21,7 @@ window.onload = function() {
         game.load.tilemap('obstacle', 'assets/killer.json', null, Phaser.Tilemap.TILED_JSON);
         game.load.image( 'gameTiles', 'assets/tiles.png' );
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
-        game.load.image('phone', 'assets/phone.jpg', 16, 28);
+        game.load.image('phone', 'assets/phone.jpg');
         game.load.image('door', 'assets/castledoors.png');
     }
     var player;
