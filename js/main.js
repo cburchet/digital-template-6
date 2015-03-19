@@ -68,7 +68,7 @@ window.onload = function() {
         //map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
         //obstacleLayer.resizeWorld();
         
-        player = game.add.sprite(100, game.world.height - 150, 'dude');
+        player = game.add.sprite(33, game.world.height - 49, 'dude');
 	 
     	game.physics.enable(player);
 	game.camera.follow(player);
