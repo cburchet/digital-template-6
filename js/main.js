@@ -33,6 +33,7 @@ window.onload = function() {
     var door;
     
     var scoreText;
+    var introText;
     
     var map;
     var backgroundLayer;
@@ -59,12 +60,12 @@ window.onload = function() {
         backgroundLayer = map.createLayer('BackgroundLayer');
         backgroundLayer.resizeWorld();
         
-        map2 = game.add.tilemap('obstacle');
-        map2.addTilesetImage('tiles', 'gameTiles');
-        obstacleLayer = map2.createLayer('ObstacleLayer');
+        //map2 = game.add.tilemap('obstacle');
+        //map2.addTilesetImage('tiles', 'gameTiles');
+       // obstacleLayer = map2.createLayer('ObstacleLayer');
         
-        map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
-        obstacleLayer.resizeWorld();
+        //map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
+        //obstacleLayer.resizeWorld();
         
         player = game.add.sprite(100, game.world.height - 150, 'dude');
 	 
@@ -78,6 +79,10 @@ window.onload = function() {
 	player.animations.add('right', [5, 6, 7, 8], 10, true);
 	
 	//set to zero and add function for user to click
+	over = true;
+	player.body.velocity.x = 0;
+	player.animations.stop();
+	player.frame = 4;
 	player.body.velocity.x = 150 + level * 10;
 	
 	phones = game.add.group();
@@ -88,14 +93,21 @@ window.onload = function() {
 	
 	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
 	scoreText.fixedToCamera = true;
+	levelText = game.add.text(100, 0, 'Level: ' + level, { fontSize: '128px', fill: 'red' });
+	levelText.fixedToCamera = true;
+	
+	introText = game.add.text(game.world.centerX, 400, '- click to start -', { font: "40px Arial", fill: "#ffffff", align: "center" });
+	introText.anchor.setTo(0.5, 0.5);
+	game.input.onDown.add(begin, this);
     }
     
     function update() 
     {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
-    	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
+    //	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
     	game.physics.arcade.collide(player, phones, collectPhones, null, this);
+    //	game.physics.arcade.collide(player, door, nextLevel, null, this);
     	
 	if (cursors.left.isDown && over == false)
 	{
@@ -113,9 +125,15 @@ window.onload = function() {
     	}
     }
     
+    function begin()
+    {
+    	player.body.velocity.x = 150 + level * 10;
+    	player.animations.play('right');
+    }
+    
     function createPhone()
     {
-    	phone = phones.create(game.rnd.integerInRange(100,500), 500, 'phone');
+    	phone = phones.create(game.rnd.integerInRange(200,500), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(600,1000), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1100,1500), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 500, 'phone');
@@ -126,6 +144,14 @@ window.onload = function() {
     	phone.kill();
     	score++;
     	scoreText.text = 'Score: ' + score;
+    }
+    
+    function nextLevel()
+    {
+    	level++;
+    	levelText.text = 'Level: ' + level;
+    	player.x = 32;
+    	player.y = 600;
     }
     
     function gameover()
