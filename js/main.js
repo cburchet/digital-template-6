@@ -113,7 +113,7 @@ window.onload = function() {
     	phone = phones.create(game.rnd.integerInRange(600,1000), 400, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1100,1500), 400, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 400, 'phone');
-    	phones.scale.setTo(2);
+    	phones.scale.setTo(2,2);
     }
     
     function gameover()
