@@ -63,12 +63,12 @@ window.onload = function() {
         backgroundLayer = map.createLayer('BackgroundLayer');
         backgroundLayer.resizeWorld();
         
-        //map2 = game.add.tilemap('obstacle');
-        //map2.addTilesetImage('tiles', 'gameTiles');
-       // obstacleLayer = map2.createLayer('ObstacleLayer');
+        map2 = game.add.tilemap('obstacle');
+        map2.addTilesetImage('tiles', 'gameTiles');
+        obstacleLayer = map2.createLayer('ObstacleLayer');
         
-        //map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
-        //obstacleLayer.resizeWorld();
+        map2.setCollisionBetween(1, 4000, true, 'ObstacleLayer');
+        obstacleLayer.resizeWorld();
         
         player = game.add.sprite(33, game.world.height - 49, 'dude');
 	 
@@ -114,7 +114,7 @@ window.onload = function() {
     {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
-    //	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
+    	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
     	game.physics.arcade.collide(player, phones, collectPhones, null, this);
     	game.physics.arcade.collide(player, door, nextLevel, null, this);
     	
@@ -147,6 +147,10 @@ window.onload = function() {
     	phone = phones.create(game.rnd.integerInRange(600,1000), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1100,1500), 500, 'phone');
     	phone = phones.create(game.rnd.integerInRange(1600,2000), 500, 'phone');
+    	phone = phones.create(game.rnd.integerInRange(2100,2500), 500, 'phone');
+    	phone = phones.create(game.rnd.integerInRange(2600,3000), 500, 'phone');
+    	phone = phones.create(game.rnd.integerInRange(3100,3500), 500, 'phone');
+    	phone = phones.create(game.rnd.integerInRange(3600,3900), 500, 'phone');
     }
     
     function collectPhones(player, phone)
