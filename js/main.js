@@ -79,6 +79,7 @@ window.onload = function() {
 	player.body.velocity.x = 150 + level * 10;
 	
 	phones = game.add.group();
+	phones.enableBody = true;
 	createPhone();
 	
 	cursors = game.input.keyboard.createCursorKeys();
@@ -89,7 +90,7 @@ window.onload = function() {
     	game.physics.arcade.collide(player, blockedLayer);
     	//add game over if collision
     	game.physics.arcade.collide(player, obstacleLayer, gameover, null, this);
-    	game.physics.arcade.overlap(player, phones, collectPhones, null, this);
+    	game.physics.arcade.collide(player, phones, collectPhones, null, this);
     	
 	if (cursors.left.isDown && over == false)
 	{
@@ -117,7 +118,7 @@ window.onload = function() {
     
     function collectPhones()
     {
-    	phone.kill();
+    	phone.destroy();
     	score++;
     	var gameoverText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
     }
