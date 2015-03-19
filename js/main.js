@@ -94,7 +94,7 @@ window.onload = function() {
 	
 	scoreText = game.add.text(0, 0, 'Score: ' + score, { fontSize: '128px', fill: 'red' });
 	scoreText.fixedToCamera = true;
-	levelText = game.add.text(100, 0, 'Level: ' + level, { fontSize: '128px', fill: 'red' });
+	levelText = game.add.text(120, 0, 'Level: ' + level, { fontSize: '128px', fill: 'red' });
 	levelText.fixedToCamera = true;
 	
 	introText = game.add.text(game.world.centerX, 400, '- click to start -', { font: "40px Arial", fill: "#ffffff", align: "center" });
