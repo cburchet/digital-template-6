@@ -99,7 +99,7 @@ window.onload = function() {
 	levelText = game.add.text(120, 0, 'Level: ' + level, { fontSize: '128px', fill: 'red' });
 	levelText.fixedToCamera = true;
 	
-	introText = game.add.text(game.world.centerX, 400, '- click to start -', { font: "40px Arial", fill: "#ffffff", align: "center" });
+	introText = game.add.text(300, 350, '- click to start -', { font: "40px Arial", fill: "#ffffff", align: "center" });
 	introText.anchor.setTo(0.5, 0.5);
 	introText.fixedToCamera = true;
 	game.input.onDown.add(begin, this);
